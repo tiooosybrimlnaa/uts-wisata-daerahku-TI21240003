@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinasi Wisata</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); min-height:100vh;">
+<body class="page-destinasi">
+
+  <!-- 🔹 Navbar -->
+  <header class="navbar">
+    <div class="logo">🌿 Wisata Daerahku</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="destinasi.html" class="active">Destinasi</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 🔹 Konten Utama -->
+  <main class="container">
+    <h1 class="judul-halaman">🌴 Pilih Destinasi Wisata</h1>
+
+    <div class="destinasi-grid">
+      <div class="destinasi-card" onclick="bukaDetail('senggigi')">
+        <img src="assets/img/senggigi.jpg" alt="Pantai Senggigi" />
+        <h3>Pantai Senggigi</h3>
+        <p>Keindahan pantai dengan sunset menawan.</p>
+      </div>
+
+      <div class="destinasi-card" onclick="bukaDetail('rinjani')">
+        <img src="assets/img/rinjani.jpg" alt="Gunung Rinjani" />
+        <h3>Gunung Rinjani</h3>
+        <p>Pendakian menuju puncak tertinggi di Lombok.</p>
+      </div>
+
+      <div class="destinasi-card" onclick="bukaDetail('gili')">
+        <img src="assets/img/gili.jpg" alt="Gili Trawangan" />
+        <h3>Gili Trawangan</h3>
+        <p>Pulau tropis dengan pantai pasir putih nan indah.</p>
+      </div>
+    </div>
+
+    <button class="btn-kembali" onclick="window.location.href='index.html'">← Kembali</button>
+  </main>
+
+  <script>
+    function bukaDetail(tempat) {
+      window.location.href = `detail.html?tempat=${tempat}`;
+    }
+  </script>
+</body>
+</html>

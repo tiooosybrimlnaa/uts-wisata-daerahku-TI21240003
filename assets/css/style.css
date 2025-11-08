@@ -1,0 +1,458 @@
+/* ===================================================
+   STYLE.CSS — Wisata Daerahku by L
+   =================================================== */
+
+/* ========== RESET DASAR ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== NAVBAR ========== */
+header {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar,
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+.logo,
+header h1 {
+  font-size: 1.4rem;
+  color: #166534;
+  font-weight: 600;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  color: #15803d;
+}
+
+nav a.active {
+  color: #15803d;
+  font-weight: 600;
+}
+
+/* ========== HALAMAN UTAMA & STRUKTUR KONTEN ========== */
+.container {
+  flex: 1;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.judul-halaman {
+  font-size: 1.9rem;
+  color: #14532d;
+  margin-bottom: 40px;
+  text-align: left;
+  margin-left: 5%;
+}
+
+/* ========== CARD DESTINASI ========== */
+.destinasi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+  justify-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.destinasi-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 270px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destinasi-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.destinasi-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.destinasi-card h3 {
+  font-size: 1.2rem;
+  color: #1b4332;
+  margin: 15px 0 5px;
+}
+
+.destinasi-card p {
+  font-size: 0.9rem;
+  color: #555;
+  padding: 0 12px 20px;
+}
+
+/* ========== TOMBOL UMUM ========== */
+button,
+.btn-kembali {
+  background: #15803d;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover,
+.btn-kembali:hover {
+  background: #166534;
+  transform: scale(1.05);
+}
+
+.btn-kembali {
+  margin-top: 40px;
+}
+
+/* ========== FORM KONTAK ========== */
+.form-container {
+  max-width: 500px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #14532d;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #1b4332;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #15803d;
+  box-shadow: 0 0 5px rgba(21, 128, 61, 0.4);
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ========== GALERI ========== */
+.galeri-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 40px;
+}
+
+.galeri-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.galeri-item:hover {
+  transform: scale(1.05);
+}
+
+.galeri-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: auto;
+}
+
+/* ========== RESPONSIF ========== */
+@media (max-width: 768px) {
+  .navbar,
+  header nav {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .judul-halaman {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .destinasi-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .form-container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+.hasil-output {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.hasil-box {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: inline-block;
+  max-width: 500px;
+}
+
+blockquote {
+  font-style: italic;
+  color: #555;
+  margin: 10px 0;
+}
+/* === RATING BINTANG === */
+.star-rating {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.star-rating span {
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.star-rating span.active {
+  color: #f7b500;
+}
+
+.star-rating span:hover {
+  color: #ffcc33;
+}
+
+/* TAMPILAN HASIL */
+.star-display {
+  font-size: 26px;
+  color: #f7b500;
+  letter-spacing: 2px;
+}
+
+.hasil-output {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.hasil-box {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: inline-block;
+  max-width: 500px;
+  animation: fadeIn 0.6s ease;
+}
+
+blockquote {
+  font-style: italic;
+  color: #555;
+  margin: 10px 0;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+/* === DETAIL DESTINASI === */
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.detail-card {
+  background: rgba(255, 255, 255, 0.9);
+  width: 900px;
+  height: 480px; /* ✅ semua sama tinggi */
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.detail-card:hover {
+  transform: scale(1.02);
+}
+
+.detail-card img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-text {
+  width: 50%;
+  padding: 40px 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detail-text h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.detail-text p {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.detail-text .btn-kembali {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #0077b6;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.detail-text .btn-kembali:hover {
+  background: #023e8a;
+}
+
+/* RESPONSIF */
+@media (max-width: 900px) {
+  .detail-card {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
+
+  .detail-card img {
+    width: 100%;
+    height: 250px;
+  }
+
+  .detail-text {
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+  }
+}
+/* ========== WARNA HALAMAN UNIK ========== */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 1s ease, color 1s ease; /* fade-in bg saat berubah halaman */
+}
+
+/* Warna halaman */
+.page-beranda {
+  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+  color: #fff;
+}
+
+.page-destinasi {
+  background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);
+  color: #1b4332;
+}
+
+.page-detail {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  color: #333;
+}
+
+.page-galeri {
+  background: linear-gradient(135deg, #8bbafc 0%, #ecc5d9 100%);
+  color: #fff;
+}
+
+.page-kontak {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  color: #1b4332;
+}
+
+/* efek fade-in saat load halaman */
+body {
+  opacity: 0;
+  animation: fadeInBody 0.8s forwards;
+}
+
+@keyframes fadeInBody {
+  to { opacity: 1; }
+}

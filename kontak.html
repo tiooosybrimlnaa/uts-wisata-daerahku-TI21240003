@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak Kami - Wisata Daerahku</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body style="background: linear-gradient(135deg, #03a39b 0%, #9d0333 100%); min-height:100vh;">
+<body class="page-kontak">
+
+  <header>
+    <nav>
+      <h1 class="logo">🌿 Wisata Daerahku</h1>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="destinasi.html">Destinasi</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="kontak.html" class="active">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 class="judul-halaman">📬 Hubungi Kami</h2>
+
+    <div class="form-container">
+      <form id="formKontak">
+        <div class="form-group">
+          <label for="nama">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Alamat Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="pesan">Pesan Anda</label>
+          <textarea id="pesan" name="pesan" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Rating Anda</label>
+          <div class="star-rating" id="starRating">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
+          </div>
+          <input type="hidden" id="rating" name="rating" value="0" required>
+        </div>
+
+        <button type="submit">Kirim Pesan</button>
+      </form>
+
+      <div id="hasil" class="hasil-output"></div>
+    </div>
+
+    <a href="index.html"><button class="btn-kembali">⬅ Kembali ke Beranda</button></a>
+  </div>
+
+  <footer>
+    <p>© 2025 Wisata Daerahku | Dibuat dengan oleh L</p>
+  </footer>
+
+  <script>
+    // === Sistem Rating Bintang ===
+    const stars = document.querySelectorAll('#starRating span');
+    const ratingInput = document.getElementById('rating');
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const value = star.getAttribute('data-value');
+        ratingInput.value = value;
+
+        // Hapus kelas aktif dulu
+        stars.forEach(s => s.classList.remove('active'));
+        // Tambahkan kelas aktif sampai jumlah bintang yang diklik
+        for (let i = 0; i < value; i++) {
+          stars[i].classList.add('active');
+        }
+      });
+    });
+
+    // === Kirim Form ===
+    const form = document.getElementById("formKontak");
+    const hasilDiv = document.getElementById("hasil");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nama = document.getElementById("nama").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const pesan = document.getElementById("pesan").value.trim();
+      const rating = parseInt(document.getElementById("rating").value);
+
+      if (rating === 0) {
+        alert("Silakan beri rating terlebih dahulu!");
+        return;
+      }
+
+      const bintangHTML = "★".repeat(rating) + "☆".repeat(5 - rating);
+
+      hasilDiv.innerHTML = `
+        <div class="hasil-box">
+          <h3>📨 Terima kasih, ${nama}!</h3>
+          <p>Kami telah menerima pesanmu:</p>
+          <blockquote>"${pesan}"</blockquote>
+          <p>Rating yang kamu berikan:</p>
+          <div class="star-display">${bintangHTML}</div>
+          <p>Kami akan menghubungi kamu di <em>${email}</em> secepatnya.</p>
+        </div>
+      `;
+
+      form.reset();
+      stars.forEach(s => s.classList.remove('active'));
+      ratingInput.value = 0;
+    });
+  </script>
+</body>
+</html>

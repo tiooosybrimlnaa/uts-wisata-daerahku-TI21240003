@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Destinasi</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); min-height:100vh;">
+<body class="page-detail">
+
+  <header>
+    <nav>
+      <h1 class="logo">🌴 Wisata Daerahku</h1>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="destinasi.html" class="active">Destinasi</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="detail-container">
+    <div class="detail-card">
+      <img id="detail-img" src="" alt="Destinasi Wisata">
+      <div class="detail-text">
+        <h2 id="detail-title"></h2>
+        <p id="detail-desc"></p>
+        <a href="destinasi.html" class="btn-kembali">⬅ Kembali ke Destinasi</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Wisata Daerahku | Dibuat dengan ❤️ oleh L</p>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const tempat = params.get('tempat');
+
+    const data = {
+      senggigi: {
+        title: "Pantai Senggigi",
+        img: "assets/img/senggigi.jpg",
+        desc: "Pantai Senggigi terkenal dengan pasir putihnya dan sunset yang menawan. Tempat ini menjadi destinasi populer untuk bersantai, snorkeling, dan menikmati kuliner laut di tepi pantai."
+      },
+      rinjani: {
+        title: "Gunung Rinjani",
+        img: "assets/img/rinjani.jpg",
+        desc: "Gunung Rinjani merupakan gunung tertinggi kedua di Indonesia dengan ketinggian 3.726 meter. Pendaki dapat menikmati pemandangan Danau Segara Anak dan panorama alam yang spektakuler."
+      },
+      gili: {
+        title: "Gili Trawangan",
+        img: "assets/img/gili.jpg",
+        desc: "Gili Trawangan adalah pulau tropis yang terkenal dengan pantai berpasir putih, air laut jernih, dan kehidupan malam yang seru. Tidak ada kendaraan bermotor di sini — hanya sepeda dan cidomo!"
+      }
+    };
+
+    if (data[tempat]) {
+      document.getElementById("detail-title").textContent = data[tempat].title;
+      document.getElementById("detail-img").src = data[tempat].img;
+      document.getElementById("detail-desc").textContent = data[tempat].desc;
+    } else {
+      document.querySelector(".detail-container").innerHTML = `
+        <div class="not-found">
+          <h2>❌ Destinasi tidak ditemukan!</h2>
+          <a href="destinasi.html" class="btn-kembali">⬅ Kembali ke Destinasi</a>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
