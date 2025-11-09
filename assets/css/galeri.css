@@ -1,7 +1,3 @@
-/* ===================================================
-   GALERI.CSS — Wisata Daerahku by L
-   =================================================== */
-
 .galeri-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 baris */
@@ -29,7 +25,6 @@
   display: block;
 }
 
-/* Caption di bawah foto */
 .caption {
   position: absolute;
   bottom: 0;
@@ -47,7 +42,6 @@
   opacity: 1;
 }
 
-/* Fade-in tiap item saat load halaman */
 .galeri-item {
   opacity: 0;
   transform: translateY(10px);
